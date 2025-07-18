@@ -1,0 +1,10 @@
+
+elevenlabs
+python-dotenv
+pydub
+langchain
+ffmpeg-python
+langchain-community
+fastapi
+uvicorn
+pydantic
