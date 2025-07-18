@@ -1,13 +1,58 @@
 AI Podcast Generator
-This project allows you to generate a short podcast episode using AI. It creates a script where a host and a guest discuss a topic, and then converts the script into speech using ElevenLabs. The result is a ready-to-play podcast audio file.
+This project generates a short podcast episode using AI. It creates a dialogue-based script between a host and a guest using a Large Language Model (via Groq), then converts it to audio using ElevenLabs.
 
-Setup Instructions
-To get started, first make sure you have Python installed and then set up a virtual environment for the project. Install all required dependencies listed in the project’s requirements file.
+✅ Features
+Generates a short, conversational podcast script
 
-Next, create a file named .env in the root directory of the project. In this file, you’ll need to add two API keys: one for Groq and one for ElevenLabs. These keys are necessary for generating the podcast script and converting text to speech.
+Converts script to audio using realistic AI voices
 
-Running the Application
-Once everything is set up, you can run the FastAPI application. The server will start locally and provide a web interface for interacting with the API.
+Fully automated using FastAPI, LangChain, and ElevenLabs
 
-Testing the API
-Open your browser and go to the /docs page. This will load the Swagger UI, which gives you an easy way to test the podcast generator. Use the POST endpoint called generate_podcast. Click “Try it out,” enter a topic for your podcast, and submit the request. The API will return the filenames for the generated script and audio.
+API-ready for integration and testing via Swagger UI
+
+🔧 Setup Instructions
+
+1. Clone the repository
+git clone https://github.com/your-username/ai-podcast-generator.git
+cd ai-podcast-generator
+
+2. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+3. Install dependencies
+pip install -r requirements.txt
+
+4. Create a .env file
+In the project root, create a .env file with the following content:
+GROQ_API_KEY=your_groq_api_key
+ELEVENLABS_API_KEY=your_elevenlabs_api_key
+Replace the placeholders with your actual API keys from Groq and ElevenLabs.
+
+🚀 Run the FastAPI App
+Start the server using Uvicorn:
+uvicorn main_api:app --reload
+Once the server is running, open your browser and visit:
+http://127.0.0.1:8000/docs
+This opens Swagger UI where you can test the API.
+
+🧪 How to Use the API
+In Swagger UI, go to the POST /generate_podcast endpoint.
+
+Click "Try it out".
+
+Fill in the JSON fields. For example:
+
+{
+  "topic": "The rise of AI in education"
+}
+Click Execute.
+
+The API will return a response like:
+{
+  "success": true,
+  "audio_file": "podcast.mp3",
+  "script_file": "podcast_script.txt",
+  "message": "Podcast successfully generated."
+}
+The script and audio files will be saved in your working directory.
